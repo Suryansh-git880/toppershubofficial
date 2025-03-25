@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10th - Subject Selection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: black;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Topper Hub Header */
+        .header {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .hub-box {
+            background: orange;
+            color: black;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .glowing-text {
+            font-size: 2rem;
+            color: #00ffcc;
+            text-shadow: 0 0 20px #00ffcc;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00ffcc; }
+            to { text-shadow: 0 0 40px #00ff99; }
+        }
+
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .subject-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            width: 90%;
+            max-width: 500px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid #00ffcc;
+            box-shadow: 0 0 15px #00ffcc;
+            backdrop-filter: blur(10px);
+        }
+
+        .subject-box:hover {
+            background: #00ff99;
+            box-shadow: 0 0 30px #00ff99;
+            transform: scale(1.08);
+        }
+
+        .subject-box img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .subject-text {
+            font-size: 1.6rem;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        /* Welcome Video Button */
+        .welcome-btn {
+            background: #ff6600;
+            color: white;
+            font-size: 1.6rem;
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 20px 0;
+            box-shadow: 0 0 15px #ff6600;
+        }
+
+        .welcome-btn:hover {
+            background: #ff9933;
+            box-shadow: 0 0 30px #ff9933;
+            transform: scale(1.1);
+        }
+
+        /* Pop-up Styling */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px #00ffcc;
+            text-align: center;
+            font-size: 1.8rem;
+            color: white;
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .popup button {
+            margin-top: 15px;
+            background: #00ff99;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .popup button:hover {
+            background: #00cc77;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        @media (max-width: 600px) {
+            .subject-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .subject-box img {
+                margin: 0 0 10px 0;
+            }
+
+            .popup {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="header">TOPPERS<span class="hub-box">HUB</span></h1>
+
+    <h2 class="glowing-text">🚀 Choose Your Subject (Class 10th) 🚀</h2>
+
+    <button class="welcome-btn" onclick="redirectTo('welcomevideo.html')">▶️ Welcome Video</button>
+    
+    <div class="container">
+        <div class="subject-box" onclick="showPopup()">
+            <img src="https://i.ibb.co/9HSQ8wkH/IMG-20250321-115602-082.jpg" alt="Science">
+            <span class="subject-text">🔬 Science</span>
+        </div>
+
+        <div class="subject-box" onclick="showPopup()">
+            <img src="https://i.ibb.co/yndm7Qs4/IMG-20250321-115601-785.jpg" alt="Mathematics">
+            <span class="subject-text">📐 Mathematics</span>
+        </div>
+
+        <div class="subject-box" onclick="showPopup()">
+            <img src="https://i.ibb.co/Q7zNttGB/IMG-20250321-115602-084.jpg" alt="Social Science">
+            <span class="subject-text">🌍 Social Science</span>
+        </div>
+
+        <div class="subject-box" onclick="showPopup()">
+            <img src="https://i.ibb.co/ZRL68BXT/IMG-20250321-203351-586.jpg" alt="English">
+            <span class="subject-text">📖 English</span>
+        </div>
+
+        <div class="subject-box" onclick="showPopup()">
+            <img src="https://i.ibb.co/ynx2zDLw/IMG-20250321-115602-455.jpg" alt="Hindi">
+            <span class="subject-text">📝 Hindi</span>
+        </div>
+    </div>
+
+    <!-- Pop-up -->
+    <div id="popup" class="popup">
+        <p>🚀 Batch Not Started Yet 🚀</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
