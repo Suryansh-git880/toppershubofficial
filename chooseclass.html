@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topper Hub - Ultimate Attitude</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+        body {
+            background: linear-gradient(-45deg, #020024, #090979, #00d4ff, #6a00f4);
+            background-size: 400% 400%;
+            animation: gradientBG 10s infinite alternate ease-in-out;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .container {
+            background:BLACK;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+            width: 90vw;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+        }
+        h1 {
+            font-size: 28px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px cyan, 0 0 30px blue;
+            animation: glowText 2s infinite alternate;
+        }
+        @keyframes glowText {
+            0% { text-shadow: 0 0 15px cyan, 0 0 30px blue; }
+            100% { text-shadow: 0 0 20px cyan, 0 0 40px blue; }
+        }
+        .img-box {
+            width: 100%;
+            max-height: 250px; /* Increased size */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+            transition: transform 0.3s ease-in-out;
+        }
+        .img-box img {
+            width: 100%;
+            max-height: 250px; /* Increased height */
+            object-fit: contain; /* Ensures the full logo is visible */
+            border-radius: 15px;
+        }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        .btn {
+            width: 90%;
+            max-width: 300px;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            background: linear-gradient(45deg, cyan, blue, purple);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Toppers Hub</h1>
+        <div class="img-box">
+            <img src="https://i.ibb.co/xKk1rn60/IMG-20250306-120747-661.jpg" alt="Topper Hub Angry Logo">
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="location.href='class10thbatches.html'">Class 10th Batches</button>
+            <button class="btn" onclick="location.href='class11thbatches.html'">Class 11th Batches</button>
+            <button class="btn" onclick="location.href='comingsoon.html'">Class 12th Batches</button>
+            <button class="btn" onclick="location.href='books.html'">All Books in One Place</button>
+        </div>
+    </div>
+</body>
+</html>
