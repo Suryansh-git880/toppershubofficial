@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Key - Topper Hub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: #050d1f;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px cyan;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+        }
+
+        .hub-box {
+            background: orange;
+            color: black;
+            padding: 3px 8px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .server-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        .server1 { background: #00ccff; color: black; }
+        .server2 { background: #39ff14; color: black; }
+        .server3 { background: #ffae00; color: black; }
+
+        .server-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            TOPPER <span class="hub-box">HUB</span>
+        </div>
+
+        <h2>Generate Your Secure Key</h2>
+        <p style="font-size: 14px; opacity: 0.8;">Choose a secure server to proceed.</p>
+
+        <button class="server-btn server1" onclick="redirectToShortenedURL()">CONNECT TO SERVER 1 🔹</button>
+        <button class="server-btn server2" onclick="redirectToShortenedURL()">CONNECT TO SERVER 2 🔸</button>
+        <button class="server-btn server3" onclick="redirectToShortenedURL()">CONNECT TO SERVER 3 🔻</button>
+
+        <!-- Manual Verification Button -->
+        <button class="server-btn" style="background: black; color: white;" onclick="verifyAccess()">✅ I'VE COMPLETED THE SHORTENER</button>
+    </div>
+
+    <script>
+        const finalDestination = "books.html";
+        const shortenerURL = "https://modijiurl.com/ltr6ZC";
+        const storageKey = "lastAccessTime";
+        const visitedFinalPageKey = "visitedFinalPage";
+
+        // Check if the user already has access
+        function checkAccess() {
+            const lastAccessTime = localStorage.getItem(storageKey);
+            const visitedFinalPage = localStorage.getItem(visitedFinalPageKey);
+
+            if (lastAccessTime && visitedFinalPage) {
+                const currentTime = new Date().getTime();
+                const timeDifference = currentTime - parseInt(lastAccessTime);
+
+                if (timeDifference < 86400000) {
+                    window.location.href = finalDestination;
+                }
+            }
+        }
+
+        // Redirect to shortener URL
+        function redirectToShortenedURL() {
+            window.location.href = shortenerURL;
+        }
+
+        // User manually confirms they have reached the final page
+        function verifyAccess() {
+            if (window.location.href === finalDestination) {
+                localStorage.setItem(storageKey, new Date().getTime());
+                localStorage.setItem(visitedFinalPageKey, true); // Set visited flag to true
+                alert("✅ Access granted for 24 hours! Redirecting...");
+                window.location.href = finalDestination;
+            } else {
+                alert("❌ Please ensure you have generated the key successfully.");
+            }
+        }
+
+        // Run check on page load
+        checkAccess();
+    </script>
+
+</body>
+</html>
